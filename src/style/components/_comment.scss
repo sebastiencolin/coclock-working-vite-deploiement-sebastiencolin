@@ -1,0 +1,36 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- COMMENTAIRES -- */
+
+.theme-comment {
+  background-color: $secondary-light;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  width: 275px;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__timestamp {
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+@include mixins.tablet {
+  .theme-comment {
+    width: 566px;
+    font-size: 16px;
+  }
+}
+
+@include mixins.desktop {
+  .theme-comment {
+    width: 825px;
+    font-size: 18px;
+  }
+}

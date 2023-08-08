@@ -1,0 +1,140 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- Header -- */
+header {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  // Logo situé dans l'entête de page
+  .home-link-logo {
+    width: 40px;
+    height: 40px;
+    background: url("/CW-header-logo.png") center/contain no-repeat;
+  }
+
+  // Bouton pour afficher le menu (uniquement mobile & tablette)
+  .menu-button {
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background: url("/icons/menu-icon-green.png") center/cover;
+
+    // Variante du bouton utilisée pour afficher une croix de fermeture
+    &--close {
+      background: url("/icons/menu-icon-close.png") center/cover;
+      align-self: flex-end;
+    }
+  }
+
+  /* Le menu n'est pas visible au format mobile & tablette */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $primary;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0.5rem 1rem;
+
+    /* On indique des règles pour notre liste du menu... */
+    & ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    /* ... ainsi qu'aux enfants qui la compose */
+    & li {
+      padding: 0.5rem 1rem;
+      font-size: 24px;
+      border-radius: 0.5rem;
+      transition: ease-in-out 0.4s all;
+    }
+    /* On met en place quelques règles pour que nos liens soient jolis et raccord avec la maquette */
+    &__link {
+      color: $light;
+      text-decoration: none;
+      transition: ease-in-out 0.3s all;
+    }
+  }
+
+  // Logo qui apparaît uniquement sur le menu mobile & tablette
+  .menu-logo {
+    width: 33%;
+  }
+}
+
+// MEDIA-QUERIES
+@include mixins.desktop {
+  /* -- Header -- */
+  header {
+    /* Le bouton de menu disparaît au format desktop */
+    .menu-button {
+      display: none;
+    }
+
+    /* On fait apparaître la navbar dans le header  */
+    .nav-menu {
+      display: flex !important; // "!important" est utilisé pour afficher correctement le menu en desktop entre chaque page sans rechargement
+      flex-direction: row;
+      justify-content: flex-end;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: none;
+
+      /* On indique des règles pour notre liste du menu... */
+      ul {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        color: $primary;
+      }
+
+      /* ... ainsi qu'aux enfants qui la compose */
+      li {
+        padding: 0.5rem 1rem;
+        font-size: 24px;
+        border-radius: 0.5rem;
+        transition: ease-in-out 0.4s all;
+      }
+
+      /* On ajoute des règles pour faire joli au survol */
+      li:hover {
+        background: $primary;
+        transition: ease-in-out 0.4s all;
+      }
+
+      /* On met en place quelques règles pour que nos liens soient jolis et raccord avec la maquette */
+      &__link {
+        color: $primary;
+        text-decoration: none;
+        transition: ease-in-out 0.3s all;
+      }
+
+      // ...ainsi qu'un effet au survol de ceux-ci
+      &__link:hover {
+        color: #fff;
+        transition: ease-in-out 0.3s all;
+      }
+    }
+
+    // On fait disparaître le logo de l'entreprise qui était incrusté dans le menu au format mobile
+    .menu-logo {
+      display: none;
+    }
+  }
+}

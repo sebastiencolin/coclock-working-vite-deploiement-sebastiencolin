@@ -1,0 +1,30 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- BOUTONS -- */
+.theme-button {
+  background-color: $primary;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 275px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 1px $secondary;
+  border-style: none;
+  height: 48px;
+
+  &--disabled {
+    background-color: $secondary;
+    cursor: default;
+  }
+}
+
+@include mixins.tablet {
+  .theme-button {
+    width: 566px;
+    font-size: 16px;
+  }
+}

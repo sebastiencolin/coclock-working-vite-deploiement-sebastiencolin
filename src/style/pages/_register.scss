@@ -1,0 +1,6 @@
+//  Import css
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+@include mixins.tablet {
+}

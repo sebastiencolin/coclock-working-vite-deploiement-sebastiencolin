@@ -1,0 +1,12 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* Création d'une grille pour l'affichage de nos cards de manière responsive */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  grid-gap: 32px;
+  justify-items: center;
+  align-items: center;
+  margin: 0 2rem;
+}

@@ -1,0 +1,97 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+// Chaque section de cet espace reçoit des règles de base
+.space-information,
+.space-comments,
+.space-add-comment {
+  width: 275px;
+  margin: auto;
+}
+
+/* -- Section d'entête d'un espace */
+.space-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+        rgba(255, 255, 255, 0.75),
+        rgba(255, 255, 255, 0.75)
+      )
+      center/cover,
+    url("/images/space-01-small.jpg") center/cover;
+
+  & .theme-button {
+    position: absolute;
+    bottom: 1rem;
+  }
+}
+
+/* -- Sextion d'informations sur la salle */
+
+.space-information {
+  /* On fait un calcul pour placer la suite des sections
+        en prenant en compte la hauteur du 1er bloc 'présentation'
+        et l'entête de page  */
+  margin-top: calc(33vh - 48px);
+
+  &-list {
+    list-style-type: none;
+    padding: 0.5rem 0;
+
+    &__elt {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      & img {
+        height: 24px;
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
+
+@include mixins.tablet {
+  // Toutes les sections évoluent avec le passage sur un écran de tablette
+  .space-information,
+  .space-comments,
+  .space-add-comment {
+    width: 566px;
+  }
+
+  // --Section d'informations sur la salle
+  .space-information-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &__elt {
+      min-width: 45%;
+    }
+  }
+}
+
+@include mixins.desktop {
+  // Les sections changent de taille au passage sur écran desktop
+  .space-information,
+  .space-comments,
+  .space-add-comment {
+    width: 825px;
+  }
+
+  .space-header {
+    background: linear-gradient(
+          rgba(255, 255, 255, 0.75),
+          rgba(255, 255, 255, 0.75)
+        )
+        center/cover,
+      url("/images/space-01-large.jpg") center/cover;
+  }
+}

@@ -1,0 +1,34 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- CHAMPS -- */
+
+.theme-input {
+  width: 275px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 1px $secondary;
+  border-style: none;
+  height: 48px;
+  background-color: $primary-lighter;
+  color: $primary;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+
+  &::placeholder {
+    color: $primary-light;
+    font-weight: bold;
+  }
+}
+
+@include mixins.tablet {
+  .theme-input {
+    width: 566px;
+    font-size: 16px;
+
+    &--small {
+      box-sizing: border-box;
+      width: 275px;
+    }
+  }
+}

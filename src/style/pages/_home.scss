@@ -1,0 +1,147 @@
+//  Import css
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+// Déclarations des règles pour la page d'accueil
+.homepage {
+  // Règles générales
+  color: $light;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $primary),
+    url("/images/homepage-background.jpg") center/cover no-repeat;
+
+  // Entête de la page
+  header {
+    flex-direction: row-reverse;
+
+    .home-link-logo {
+      display: none;
+    }
+
+    .menu-button {
+      background: url("/icons/menu-icon-white.png") center/cover;
+
+      &--close {
+        background: url("/icons/menu-icon-close.png") center/cover;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  // Bloc main de la page
+  main {
+    /* -- BRAND LOGO -- */
+    .brand {
+      width: 100%;
+      min-height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__logo {
+        width: 100%;
+      }
+    }
+
+    /* -- COMPANY PRESENTATION -- */
+    .presentation {
+      margin: 0 1rem;
+      display: inline-block;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* -- MAIN TITLE -- */
+    &__title {
+      text-align: center;
+      margin: 2rem 0;
+    }
+  }
+}
+
+/* -- MEDIA-QUERIES -- */
+
+/* -- TABLETTE -- */
+@include mixins.tablet {
+  .homepage {
+    main {
+      // Partie logo
+      .brand {
+        /* Ici, on modifie juste la taille du conteneur */
+        height: 30vh;
+
+        &__logo {
+          width: 50%;
+        }
+      }
+
+      /* -- COMPANY PRESENTATION -- */
+      .presentation {
+        margin: 0 3rem;
+        /* -- MAIN TITLE -- */
+        &__title {
+          margin: 4rem 0;
+        }
+      }
+    }
+  }
+}
+
+/* -- DESKTOP -- */
+@include mixins.desktop {
+  /* -- RÈGLES GÉNÉRALES -- */
+  .homepage {
+    background: $light;
+    color: $primary;
+
+    /* -- MAIN -- */
+    main {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 100%;
+
+      /* On va indiquer que les deux parties de notre main prennent chacun 50% de notre page en largeur */
+      .brand,
+      .presentation {
+        width: 50%;
+      }
+
+      /* -- PARTIE GAUCHE -- */
+      .brand {
+        height: 100vh;
+        /* 
+        On impélemente trois backgrounds par empilage
+          - Le logo de notre entreprise
+          - Un dégradé blanc comme sur la maquette
+          - L'image d'illustration 
+        */
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.6)
+          ),
+          url("/images/homepage-background.jpg") center/cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      /* On enlève la marge de la partie droite... */
+      .presentation {
+        margin: 0;
+        text-align: left;
+        /* ... pour l'appliquer à chacun de nos paragraphes */
+        &__paragraph {
+          padding: 0 2rem;
+        }
+
+        // On met le titre en valeur
+        &__title {
+          text-align: left;
+          margin: 2rem 2rem;
+        }
+      }
+    }
+  }
+}

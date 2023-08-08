@@ -1,0 +1,11 @@
+/* -- Fonts -- */
+@font-face {
+  font-family: "Lato";
+  src: local("Lato"), url("/fonts/Lato-Regular.ttf") format("TrueType"),
+    url("/fonts/Lato-Bold.ttf") format("TrueType");
+  /* 
+      On ajoute font-display pour que la police soit toujours visible lors du chargement de page
+      lien : https://developer.chrome.com/docs/lighthouse/performance/font-display/
+    */
+  font-display: swap;
+}

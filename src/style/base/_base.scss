@@ -1,0 +1,76 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- Styles généraux --  */
+body {
+  /* La police de caractères et la même partout */
+  font-family: "Lato", sans-serif;
+
+  /* On règle la hauteur de page comme étant à minima de la taille de l'écran */
+  min-height: 100vh;
+
+  background: $light;
+  color: $primary;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  color: $primary;
+}
+
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 18px;
+}
+p {
+  font-size: 16px;
+}
+
+@include mixins.tablet {
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+
+@include mixins.desktop {
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,42 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- ALERTES -- */
+.theme-alert {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  margin: 0.5rem auto;
+  text-align: center;
+  position: relative;
+  width: 275px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 1px $secondary;
+  border-style: none;
+
+  & span {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+  }
+
+  &.error {
+    background-color: #fab7b3;
+    color: #bf190d;
+    display: none;
+  }
+
+  &.success {
+    background-color: $primary-lighter;
+    color: $primary;
+    display: none;
+  }
+}
+
+@include mixins.tablet {
+  .theme-alert {
+    width: 566px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,9 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+.theme-label {
+  padding-top: 0.25rem;
+  font-weight: bold;
+  display: block;
+  width: 275px;
+}

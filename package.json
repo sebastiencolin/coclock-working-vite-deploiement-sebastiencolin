@@ -1,0 +1,23 @@
+{
+  "name": "coclock-working-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.2.0",
+    "sass": "^1.62.1",
+    "svelte": "^3.57.0",
+    "svelte-preprocess": "^5.0.3",
+    "vite": "^4.3.8",
+    "vite-aliases": "^0.11.1",
+    "vite-plugin-sass": "^0.1.0"
+  },
+  "dependencies": {
+    "svelte-spa-router": "^3.3.0"
+  }
+}

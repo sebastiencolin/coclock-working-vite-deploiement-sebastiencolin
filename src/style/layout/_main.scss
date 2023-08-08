@@ -1,0 +1,27 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins";
+
+/* -- Main */
+.main {
+  width: 100%;
+  // Titre principal de page
+  &__title {
+    text-align: center;
+  }
+
+  // Liens situés sur les pages register & login
+  // après chaque fomulaire
+  &__minor-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    color: $primary;
+    margin: 1.5rem 0;
+  }
+
+  &__minor-link:hover {
+    text-decoration: underline;
+  }
+}

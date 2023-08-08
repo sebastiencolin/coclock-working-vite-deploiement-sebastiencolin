@@ -1,0 +1,172 @@
+@use 'variables' as *;
+@use 'mixins';
+
+header {
+    nav {
+        display: flex;
+    
+        img {
+            height: 75px;
+            width: auto;
+        }
+        ul {
+            display: none;
+            margin: auto 5px auto auto;
+            list-style: none;
+    
+            @include mixins.large {
+                display: flex;
+            }
+        }
+        li {
+            margin: 0 15px;
+            a {
+                text-decoration: none;
+                color: $dark;
+                font-size: 1.2em;
+            }
+        }
+        button {
+            margin: auto 5px auto auto;
+            outline: none;
+            background: none;
+            border: none;
+    
+            @include mixins.large {
+                display: none;
+            }
+        }
+    }
+     
+    .bandeau {
+        height: 200px;
+        background-image: url("../assets/bandeau.jpg");
+        background-size: 100%;
+    }
+}
+
+main {
+    max-width: 768px;
+    margin: 0 auto;
+    
+    h1 {
+        text-align: center;
+        font-size: 1.5em;
+        margin: 50px;
+    }
+    h2 {
+        font-size: 1.25em;
+    }    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+    }
+    label {
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+    input {
+        height: 30px;
+        border-radius: 5px;
+        line-height: 30px;
+        border: 1px solid $dark;
+    }
+    input[type="submit"] {
+        margin-top: 25px;
+        height: 40px;
+        font-size: 1.1em;
+        @include mixins.button($blue, white);
+    }
+}
+
+.spaces {
+    background: url("../assets/pexels-cowomen-2041627.jpg");
+    background-size: cover;
+    max-width: 640px;
+    max-height: 400px;
+    margin: 0 auto 30px;
+
+    > div {
+        background: $spaces-bg;
+        height: 100%;
+        width: 50%;
+        margin-left: auto;
+        padding: 15px 10px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > a {
+            background: $blue;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+}
+
+.space {
+    .banner {
+        background: url("../assets/pexels-cowomen-2041627.jpg");
+        background-size: cover;
+        height: 200px;
+
+        @include mixins.large {
+            height: 400px;
+        }
+    }
+    .comments {
+        margin-top: 30px;
+        > div {
+            background: $comment-bg;
+            padding: 5px 10px;
+            margin: 0 0 10px;
+        }
+    }
+}
+
+.stats {
+    background: $stats-bg;
+    margin: 15px 0 0;
+    padding: 15px;
+
+    h2 {
+        text-align: center;
+        margin: 15px auto 30px;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0;
+
+        @include mixins.large {
+            flex-direction: row;
+        }
+
+        li {
+            margin: 5px;
+            padding: 5px 55px 5px 15px;
+            background: $light;
+            box-shadow: 0px 9px 14px 0px rgb(135 135 135);
+
+            h3 {
+                font-weight: normal;
+                font-size: 1em;
+            }
+            big {
+                font-weight: bold;
+                font-size: 1.75em;
+            }
+        }
+    }
+}

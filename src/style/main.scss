@@ -1,0 +1,24 @@
+// 1 - Base
+@use "base/normalize";
+@use "base/base";
+@use "base/fonts";
+
+// 3 - Layout
+@use "layout/header";
+@use "layout/footer";
+@use "layout/form";
+
+// 4 - Components
+@use "components/alert";
+@use "components/button";
+@use "components/card";
+@use "components/comment";
+@use "components/input";
+@use "components/label";
+@use "components/link";
+@use "components/textarea";
+
+// 5 - Pages
+@use "pages/home";
+@use "pages/space";
+@use "pages/spaces";
